@@ -1,9 +1,10 @@
+import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 
 
 
-function Header() {
+function Header({ navigation }) {
 	
 	return (
 		<View style={styles.Header}>
@@ -15,10 +16,10 @@ function Header() {
 			</TouchableHighlight>
 			<TouchableHighlight style={styles.headerTouchableHighlight}>
 				<View style={styles.HeaderBar}>  
-					 <Text style={styles.headerText}>Newsfeed</Text>
-					<Text style={styles.headerText}>Friends</Text>
-					<Text style={styles.headerText}>Profile</Text>
-					<Text style={styles.headerText}>Images</Text>
+					<Text style={styles.headerText} onPress={() => navigation.navigate('Newsfeed')}>Newsfeed</Text>
+					<Text style={styles.headerText} onPress={() => navigation.navigate('Friends')}>Friends</Text>
+					<Text style={styles.headerText} onPress={() => navigation.navigate('Profile')}>Profile</Text>
+					<Text style={styles.headerText} onPress={() => navigation.navigate('Images')}>Images</Text>
 					<Text style={styles.headerText}>Messages</Text>
 				</View>
 			</TouchableHighlight> 

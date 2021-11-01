@@ -1,27 +1,18 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
-import HeaderLogPage from "./HeaderLogPage";
-import Footer from "./Footer";
+import ThemeLoggedOut from './ThemeLoggedOut';
 
-function SignUpPage() {
+function SignUpPage({ navigation }) {
 	return (
-		<View style={styles.container}>
-			<ScrollView>
-				<View>
-					<HeaderLogPage />
-				</View>
+		<ThemeLoggedOut navigation={navigation}>
 
-				<View style={styles.body}>
-					<Text style={styles.text}>
-						Open up App.js to start working on your app!
-					</Text>
-				</View>
+      <View style={styles.body}>
+        <Text style={styles.text}>
+          Signup page
+        </Text>
+      </View>
 
-				<View>
-					<Footer />
-				</View>
-			</ScrollView>
-		</View>
+    </ThemeLoggedOut>
 	);
 }
 const styles = StyleSheet.create({

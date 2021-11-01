@@ -1,31 +1,20 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import HeaderLogPage from "./HeaderLogPage";
-import Footer from "./Footer";
-import SignUpPage from "./SignUpPage";
+import { StyleSheet, Text, View } from "react-native";
+import ThemeLoggedOut from './ThemeLoggedOut';
 
-
-function LogInPage() {
+function LogInPage({ navigation }) {
 	
 	return (
-		<View style={styles.container}>
-			<ScrollView>
-				<View>
-					<HeaderLogPage />
-				</View>
+		<ThemeLoggedOut navigation={navigation}>
 
-				<View style={styles.body}>
-					<Text name="SignUpPage">Sign Up</Text>
-					<Text style={styles.text}>
-						Open up App.js to start working on your app!
-					</Text>
-				</View>
+      <View style={styles.body}>
+        <Text name="SignUpPage" onPress={() => navigation.navigate('SignUpPage')}>Sign Up</Text>
+        <Text style={styles.text}>
+          Login page content goes here
+        </Text>
+      </View>
 
-				<View>
-					<Footer />
-				</View>
-			</ScrollView>
-		</View>
+    </ThemeLoggedOut>
 	);
 }
 

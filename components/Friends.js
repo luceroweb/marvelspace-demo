@@ -1,32 +1,18 @@
-// import React from "react";
-// import { Router, Scene } from "react-native-router-flux";
-// import Home from "./Home.js";
-// import LogInPage from "./LogInPage.js";
-
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
-import Header from "./Header";
-import Footer from "./Footer";
+import ThemeLoggedIn from './ThemeLoggedIn';
 
-function Friends() {
+function Friends({ navigation }) {
 	return (
-		<View style={styles.container}>
-			<ScrollView>
-				<View>
-					<Header />
-				</View>
+		<ThemeLoggedIn navigation={navigation}>
 
 				<View style={styles.body}>
 					<Text style={styles.text}>
-						Open up App.js to start working on your app!
+						Friends page goes here
 					</Text>
 				</View>
 
-				<View>
-					<Footer />
-				</View>
-			</ScrollView>
-		</View>
+		</ThemeLoggedIn>
 	);
 }
 const styles = StyleSheet.create({

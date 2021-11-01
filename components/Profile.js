@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, Image, Linking } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import { wpApiFetch, WPAPI_PATHS } from './WPAPI';
+import ThemeLoggedIn from './ThemeLoggedIn';
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
   const [profileInfo, setProfileInfo] = useState([]);
-  const footerText = ['Brought to you by Team Black Panther', 'About', 'Rules', 'Contact', 'Terms', '©2021 MarvelSpace. All Rights Reserved'];
 
   useEffect(() => {
     wpApiFetch({ path: WPAPI_PATHS.posts })
@@ -12,12 +12,10 @@ const Profile = () => {
         setProfileInfo(response.at(0).content.rendered)
       });
   });
+
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>MarvelSpace!</Text>
-        <Text>a space for super friends</Text>
-      </View>
+		<ThemeLoggedIn navigation={navigation}>
+
       <View style={styles.profileContainer}>
         <View style={styles.profileInfoContainer}>
           <Image 
@@ -39,15 +37,7 @@ const Profile = () => {
         </View>
       </View>
 
-      <View style={styles.footer}>
-        {
-          footerText.map((text, i) => (
-            <Text key={i} onPress={() => Linking.openURL('#')}>{text}</Text>
-          ))
-        }
-      </View>
-    </View>
-    
+    </ThemeLoggedIn>
   )
 }
 
