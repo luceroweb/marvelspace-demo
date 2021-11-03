@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 
 
 
-function Header() {
+function Header({ navigation }) {
 	
 	return (
 		<View style={styles.Header}>
@@ -17,7 +17,7 @@ function Header() {
 				<View style={styles.HeaderBar}>  
 					 <Text style={styles.headerText}>Newsfeed</Text>
 					<Text style={styles.headerText}>Friends</Text>
-					<Text style={styles.headerText}>Profile</Text>
+					<Text style={styles.headerText} onPress={() => navigation.navigate('Profile')}>Profile</Text>
 					<Text style={styles.headerText}>Images</Text>
 					<Text style={styles.headerText}>Messages</Text>
 				</View>

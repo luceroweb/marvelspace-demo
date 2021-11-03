@@ -4,13 +4,13 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 
-function Home() {
+function Home({ navigation }) {
 	return (
 		<View style={styles.container}>
 			<ScrollView>
 				<View>
 					
-					<Header />
+					<Header navigation={navigation} />
 				</View>
 
 				<View style={styles.body}>
