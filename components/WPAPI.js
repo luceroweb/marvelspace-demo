@@ -4,6 +4,7 @@ export const WPAPI_PATHS = {
   posts: `${BASE_URL}/wp/v2/posts`,
   users: `${BASE_URL}/wp/v2/users`,
   media: `${BASE_URL}/wp/v2/media`,
+  members: `${BASE_URL}/buddypress/v1/members`,
 }
 
 /**

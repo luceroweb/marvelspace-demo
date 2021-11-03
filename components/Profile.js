@@ -11,6 +11,10 @@ const Profile = () => {
       .then(response => {
         setProfileInfo(response.at(0).content.rendered)
       });
+      wpApiFetch({ path: WPAPI_PATHS.members })
+        .then(response => {
+          console.log(response)
+        });
   });
   return (
     <View style={styles.container}>
