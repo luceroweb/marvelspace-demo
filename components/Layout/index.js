@@ -26,13 +26,21 @@ export default function Layout({ children }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: "flex",
     flexDirection: "column",
-    alignItems: "stretch",
+    height: "100%",
     // primary: "#ec1d24",
   },
   main: {
     flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: "auto",
+    padding: 10,
+  },
+  shrink: {
+    flexGrow: 0,
+    flexShrink: 0,
+    flexBasis: "auto",
     padding: 10,
   },
 });

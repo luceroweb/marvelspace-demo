@@ -25,7 +25,10 @@ export default function Header() {
 
 const styles = StyleSheet.create({
 	header: {
-		flex: 1,
+    display: "flex",
+    flexGrow: 0,
+    flexShrink: 0,
+    flexBasis: "auto",
 		flexDirection: "column",
 		backgroundColor: "#0075ff",
 	},

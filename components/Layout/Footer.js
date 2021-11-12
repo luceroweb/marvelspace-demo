@@ -5,16 +5,10 @@ export default function Footer() {
 	return (
     <View style={styles.footer}>
 
-      <View>
-        <Text style={styles.footerText}>
-          Brought to you by Team Black Panther.
-        </Text>
-      </View>
-
       <View style={styles.menu}>
         <Text style={styles.footerText}>About</Text>
 
-        <Text style={styles.footerText}>Rule</Text>
+        <Text style={styles.footerText}>Rules</Text>
 
         <Text style={styles.footerText}>Contact</Text>
 
@@ -22,7 +16,7 @@ export default function Footer() {
       </View>
 
       <View>
-        <Text style={styles.footerText}>
+        <Text style={styles.copyright}>
           ©2021 MarvelSpace.All Rights Reserved.
         </Text>
       </View>
@@ -33,12 +27,17 @@ export default function Footer() {
 
 const styles = StyleSheet.create({
 	footer: {
-    flex: 1,
+    display: "flex",
+    flexGrow: 0,
+    flexShrink: 0,
+    flexBasis: "auto",
     padding: 10,
     backgroundColor: "#151515",
 	},
 	menu: {
-    flex: 1,
+    flexGrow: 0,
+    flexShrink: 0,
+    flexBasis: "auto",
     flexDirection: "row",
 	},
   footerText: {
@@ -46,5 +45,12 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		fontSize: 14,
     paddingRight: 10,
-  }
+    paddingBottom: 5,
+  },
+  copyright: {
+		color: "#444",
+		fontWeight: "bold",
+		fontSize: 14,
+    paddingRight: 10,
+  },
 });
