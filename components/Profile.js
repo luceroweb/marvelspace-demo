@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, Image, Linking } from 'react-native';
-import { wpApiFetch, WPAPI_PATHS } from './WPAPI';
+import { StyleSheet, View, Text, Image } from 'react-native';
+import { wpApiFetch, WPAPI_PATHS } from './utils/WPAPI';
+import Layout from './Layout';
 
-const Profile = () => {
+export default function Profile ({ navigation }) {
   const [profileInfo, setProfileInfo] = useState([]);
-  const footerText = ['Brought to you by Team Black Panther', 'About', 'Rules', 'Contact', 'Terms', '©2021 MarvelSpace. All Rights Reserved'];
 
   useEffect(() => {
     wpApiFetch({ path: WPAPI_PATHS.posts })
@@ -18,12 +18,7 @@ const Profile = () => {
   });
 
   return (
-    <View style={styles.container}>
-
-      <View style={styles.header}>
-        <Text>MarvelSpace!</Text>
-        <Text>a space for super friends</Text>
-      </View>
+    <Layout navigation={navigation}>
 
       <View style={styles.profileContainer}>
 
@@ -47,30 +42,12 @@ const Profile = () => {
           </View>
         </View>
       </View>
-
-      <View style={styles.footer}>
-        {
-          footerText.map((text, i) => (
-            <Text key={i} onPress={() => Linking.openURL('#')}>{text}</Text>
-          ))
-        }
-      </View>
-    </View>
+      
+    </Layout>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%'
-  },
-  header: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    padding: 20,
-    backgroundColor: '#ED1D24',
-  },
   profileContainer: {
     flex: 6,
     flexDirection: 'row',
@@ -102,13 +79,6 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     backgroundColor: 'whitesmoke',
   },
-  footer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: 'lightgray',
-  },
   pillButton: {
     borderRadius: 10,
     backgroundColor: 'lightgray',
@@ -116,5 +86,3 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
   },
 });
-
-export default Profile;

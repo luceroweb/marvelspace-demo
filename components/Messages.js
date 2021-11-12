@@ -2,19 +2,20 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Layout from "./Layout";
 
-export default function Images({ navigation }) {
+export default function Messages({ navigation }) {
 	return (
 		<Layout navigation={navigation}>
 
-				<View>
+				<View >
 					<Text style={styles.text}>
-						Images
+						Messages
 					</Text>
 				</View>
-
+        
 		</Layout>
 	);
 }
+
 const styles = StyleSheet.create({
 	text: {
 		margin: 5,

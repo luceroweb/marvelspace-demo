@@ -1,38 +1,22 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import Header from "./Header";
-import Footer from "./Footer";
+import { StyleSheet, Text, View } from "react-native";
+import Layout from "./Layout";
 
-function Friends() {
+function Friends({ navigation }) {
 	return (
-		<View style={styles.container}>
-			<ScrollView>
-        <Header />
+		<Layout navigation={navigation}>
 
-				<View style={styles.body}>
+				<View >
 					<Text style={styles.text}>
-						Open up App.js to start working on your app!
+						Friends
 					</Text>
 				</View>
-
-        <Footer />
-			</ScrollView>
-		</View>
+        
+		</Layout>
 	);
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "#fff",
-	},
-	body: {
-		backgroundColor: "#fff",
-		height: "80%",
-		width: "100%",
-		textAlign: "center",
-		justifyContent: "center",
-	},
 	text: {
 		margin: 5,
 		fontSize: 14,

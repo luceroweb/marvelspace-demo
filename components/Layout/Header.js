@@ -1,22 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function Header() {
+export default function Header({ navigation }) {
 	
 	return (
 		<View style={styles.header}>
 
       <View style={styles.headerTitle}>
-        <Text style={styles.headerText}>MARVELspace</Text>
-        <Text style={styles.headerText}>a space for super friends</Text>
+        <Text style={styles.headerText} onPress={() => navigation.navigate('Newsfeed')}>MARVELspace</Text>
+        <Text style={styles.headerText} onPress={() => navigation.navigate('Newsfeed')}>a space for super friends</Text>
       </View>
 
-      <View style={styles.headerBar}>  
-        <Text style={styles.headerText}>Newsfeed</Text>
-        <Text style={styles.headerText}>Friends</Text>
+      <View style={styles.headerBar}>
+        <Text style={styles.headerText} onPress={() => navigation.navigate('Friends')}>Friends</Text>
         <Text style={styles.headerText} onPress={() => navigation.navigate('Profile')}>Profile</Text>
-        <Text style={styles.headerText}>Images</Text>
-        <Text style={styles.headerText}>Messages</Text>
+        <Text style={styles.headerText} onPress={() => navigation.navigate('Images')}>Images</Text>
+        <Text style={styles.headerText} onPress={() => navigation.navigate('Messages')}>Messages</Text>
       </View>
 				
 		</View>

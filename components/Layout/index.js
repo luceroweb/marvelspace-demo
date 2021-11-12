@@ -1,22 +1,22 @@
 import React, { Children } from 'react';
 import { StatusBar } from "expo-status-bar";
-import { ScrollView, Text, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from './Header';
 import Footer from './Footer';
 
-export default function Layout({ children }) {
+export default function Layout({ children, navigation }) {
   
   return(
     <SafeAreaView style={styles.container}>
 
-      <Header style={styles.shrink} />
+      <Header navigation={navigation} style={styles.shrink} />
       
       <ScrollView style={styles.main}>
         {children}
       </ScrollView>
 
-      <Footer style={styles.shrink} />
+      <Footer navigation={navigation} style={styles.shrink} />
 
       <StatusBar backgroundColor="#393939" />
       

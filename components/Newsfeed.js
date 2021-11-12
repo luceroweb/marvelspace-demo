@@ -2,13 +2,13 @@ import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import Layout from "./Layout";
 
-export default function Newsfeed() {
+export default function Newsfeed({ navigation }) {
 	return (
-		<Layout>
+		<Layout navigation={navigation}>
 
       <View>
         <Text style={styles.text}>
-          Open up App.js to start working on your app!
+          Newsfeed
         </Text>
       </View>
 

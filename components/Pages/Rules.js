@@ -2,20 +2,19 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Layout from "../Layout";
 
-export default function SignUpPage() {
+export default function Rules({ navigation }) {
 	return (
-		<Layout>
+		<Layout navigation={navigation}>
 
-      <View>
-        <Text style={styles.text}>
-          Sign Up
-        </Text>
-      </View>
+				<View>
+					<Text style={styles.text}>
+						Rules
+					</Text>
+				</View>
 
 		</Layout>
 	);
 }
-
 const styles = StyleSheet.create({
 	text: {
 		margin: 5,

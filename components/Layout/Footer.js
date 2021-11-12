@@ -1,18 +1,18 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function Footer() {
+export default function Footer({ navigation }) {
 	return (
     <View style={styles.footer}>
 
       <View style={styles.menu}>
-        <Text style={styles.footerText}>About</Text>
+        <Text style={styles.footerText} onPress={() => navigation.navigate('About')}>About</Text>
 
-        <Text style={styles.footerText}>Rules</Text>
+        <Text style={styles.footerText} onPress={() => navigation.navigate('Rules')}>Rules</Text>
 
-        <Text style={styles.footerText}>Contact</Text>
+        <Text style={styles.footerText} onPress={() => navigation.navigate('Contact')}>Contact</Text>
 
-        <Text style={styles.footerText}>Terms</Text>
+        <Text style={styles.footerText} onPress={() => navigation.navigate('Terms')}>Terms</Text>
       </View>
 
       <View>
