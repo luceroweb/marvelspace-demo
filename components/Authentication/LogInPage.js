@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
-import HeaderLogPage from "./HeaderLogPage";
-import Footer from "./Footer";
+import HeaderLogPage from "../layout/HeaderLogPage";
+import Footer from "../layout/Footer";
 
 function LogInPage() {
 	
@@ -26,10 +26,8 @@ function LogInPage() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "#fff",
 	},
 	body: {
-		backgroundColor: "#fff",
 		height: "80%",
 		width: "100%",
 		textAlign: "center",

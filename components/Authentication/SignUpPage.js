@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
-import HeaderLogPage from "./HeaderLogPage";
+import HeaderLogPage from "../Layout/HeaderLogPage";
 import Footer from "./Footer";
 
 function SignUpPage() {

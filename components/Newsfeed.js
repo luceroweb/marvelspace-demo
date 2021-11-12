@@ -1,41 +1,24 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
-import Header from "./Header";
-import Footer from "./Footer";
+import Layout from "./Layout";
 
-function Newsfeed() {
+export default function Newsfeed() {
 	return (
-		<View style={styles.container}>
-			<ScrollView>
-        <Header />
+		<Layout>
 
-				<View style={styles.body}>
-					<Text style={styles.text}>
-						Open up App.js to start working on your app!
-					</Text>
-				</View>
+      <View>
+        <Text style={styles.text}>
+          Open up App.js to start working on your app!
+        </Text>
+      </View>
 
-        <Footer />
-			</ScrollView>
-		</View>
+		</Layout>
 	);
 }
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "#fff",
-	},
-	body: {
-		backgroundColor: "#fff",
-		height: "80%",
-		width: "100%",
-		textAlign: "center",
-		justifyContent: "center",
-	},
 	text: {
-		margin: 5,
+		marginTop: 5,
+    marginBottom: 5,
 		fontSize: 14,
 	},
 });
-
-export default Newsfeed;
