@@ -8,10 +8,7 @@ function Home({ navigation }) {
 	return (
 		<View style={styles.container}>
 			<ScrollView>
-				<View>
-					
-					<Header navigation={navigation} />
-				</View>
+        <Header />
 
 				<View style={styles.body}>
 					<Text style={styles.text}>
@@ -19,9 +16,7 @@ function Home({ navigation }) {
 					</Text>
 				</View>
 
-				<View>
-					<Footer />
-				</View>
+        <Footer />
 			</ScrollView>
 		</View>
 	);
@@ -40,9 +35,7 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		margin: 5,
-		fontSize: "1.5em",
-		fontWeight: 100,
-		fontFamily: "Serif",
+		fontSize: 14,
 	},
 });
 

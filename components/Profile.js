@@ -16,13 +16,17 @@ const Profile = () => {
           console.log(response)
         });
   });
+
   return (
     <View style={styles.container}>
+
       <View style={styles.header}>
         <Text>MarvelSpace!</Text>
         <Text>a space for super friends</Text>
       </View>
+
       <View style={styles.profileContainer}>
+
         <View style={styles.profileInfoContainer}>
           <Image 
             source={'https://i.pravatar.cc/300'} 
@@ -35,6 +39,7 @@ const Profile = () => {
           </View>
           
         </View>
+
         <View style={styles.profileAboutContainer}>
           <Text>About</Text>
           <View style={styles.profileAbout}>
@@ -51,7 +56,6 @@ const Profile = () => {
         }
       </View>
     </View>
-    
   )
 }
 

@@ -2,17 +2,13 @@ import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import HeaderLogPage from "./HeaderLogPage";
 import Footer from "./Footer";
-import SignUpPage from "./SignUpPage";
-
 
 function LogInPage() {
 	
 	return (
 		<View style={styles.container}>
 			<ScrollView>
-				<View>
-					<HeaderLogPage />
-				</View>
+        <HeaderLogPage />
 
 				<View style={styles.body}>
 					<Text name="SignUpPage">Sign Up</Text>
@@ -21,9 +17,7 @@ function LogInPage() {
 					</Text>
 				</View>
 
-				<View>
-					<Footer />
-				</View>
+        <Footer />
 			</ScrollView>
 		</View>
 	);
@@ -43,9 +37,7 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		margin: 5,
-		fontSize: "1.5em",
-		fontWeight: 100,
-		fontFamily: "Serif",
+		fontSize: 14,
 	},
 });
 

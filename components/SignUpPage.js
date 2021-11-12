@@ -7,9 +7,7 @@ function SignUpPage() {
 	return (
 		<View style={styles.container}>
 			<ScrollView>
-				<View>
-					<HeaderLogPage />
-				</View>
+        <HeaderLogPage />
 
 				<View style={styles.body}>
 					<Text style={styles.text}>
@@ -17,13 +15,12 @@ function SignUpPage() {
 					</Text>
 				</View>
 
-				<View>
-					<Footer />
-				</View>
+        <Footer />
 			</ScrollView>
 		</View>
 	);
 }
+
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
@@ -38,9 +35,7 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		margin: 5,
-		fontSize: "1.5em",
-		fontWeight: 100,
-		fontFamily: "Serif",
+		fontSize: 14,
 	},
 });
 

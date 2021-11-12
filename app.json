@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "team-black-panther",
-    "slug": "team-black-panther",
+    "name": "marvelspace-demo",
+    "slug": "marvelspace-demo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
