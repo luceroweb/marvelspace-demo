@@ -30,30 +30,22 @@ const styles = StyleSheet.create({
 	bottomTouchableHighlight: {
 		flex: 1,
 		flexDirection: "row",
-		position: "fixed",
 		bottom: 0,
 		backgroundColor: "grey",
 		alignItems: "center",
 		justifyContent: "center",
-		height: "4em",
+		height: 50,
 		width: "100%",
-		
 	},
 	footer: {
 		flexDirection: "row",
 		justifyContent: "flex-end",
-
-		// backgroundColor: "black",
 		width: "100%",
 		bottom: 0,
-		paddingBottom: "0",
+		paddingBottom: 0,
 		justifyContent: "space-around",
-		alignItems: "start",
-
-		
+		alignItems: "flex-start",
 	},
-	
-	
 	footerText: {
 		color: "white",
 		fontWeight: "bold",

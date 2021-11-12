@@ -16,7 +16,9 @@ export default function PasswordReset() {
 
   return (
     <View styles={styles.container}>
+
       <Text>Password Reset</Text>
+
       <Text>Create Your New Password:</Text>
       <TextInput
         style={styles.textInput}
@@ -25,6 +27,7 @@ export default function PasswordReset() {
         value={username}
         onChangeText={onChangeUsername}
       ></TextInput>
+
       <TextInput
         style={styles.textInput}
         className="textInput"
@@ -32,6 +35,7 @@ export default function PasswordReset() {
         value={newPassword}
         onChangeText={onChangeNewPassword}
       ></TextInput>
+
       <TextInput
         style={styles.textInput}
         className="textInput"
@@ -40,30 +44,32 @@ export default function PasswordReset() {
         onChangeText={onChangeConfirmNewPassword}
         onSubmitEditing={checkValidity}
       ></TextInput>
+
       <View style={styles.buttonWrapper}>
         <Button title="Submit" onPress={checkValidity} />
       </View>
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    // display: "flex",
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    paddingBottom: "2rem",
+    paddingBottom: 24,
     justifyContent: "flex-start",
     textAlign: "center",
-
     color: "cadetblue",
     backgroundColor: "aliceblue",
   },
   textInput: {
     textAlign: "center",
     margin: ".5rem",
-    border: "cadetblue solid 2px",
+    borderColor: "cadetblue",
+    borderWidth: 2,
+    borderStyle: "solid",
     padding: ".3rem",
     backgroundColor: "aliceblue",
     borderRadius: "20px",

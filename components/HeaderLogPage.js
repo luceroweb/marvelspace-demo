@@ -4,15 +4,14 @@ import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 function HeaderLogPage() {
 	return (
 		<View style={styles.Header}>
+      
 			<TouchableHighlight style={styles.headerTouchableHighlight}>
 				<View style={styles.HeaderTitle}>
 					<Text style={styles.headerText}>Marvelspace a space</Text>
 					<Text style={styles.headerText}>for super friends</Text>
 				</View>
 			</TouchableHighlight>
-			<TouchableHighlight style={styles.headerTouchableHighlight}>
-				<View></View>
-			</TouchableHighlight>
+      
 		</View>
 	);
 }
@@ -20,11 +19,11 @@ function HeaderLogPage() {
 const styles = StyleSheet.create({
 	Header: {
 		flex: 1,
-		Position: "absolute",
+		position: "absolute",
 		flexDirection: "column",
 		top: 0,
 		backgroundColor: "blue",
-		height: "4em",
+		height: 4,
 		width: "100%",
 	},
 	HeaderTitle: {
@@ -32,11 +31,10 @@ const styles = StyleSheet.create({
 		backgroundColor: "blue",
 		width: "100%",
 		justifyContent: "flex-start",
-		alignItems: "start",
+		alignItems: "flex-start",
 		padding: 15,
 		paddingBottom: 20,
 	},
-
 	headerTouchableHighlight: {
 		alignItems: "center",
 		justifyContent: "center",
@@ -49,4 +47,5 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 	},
 });
+
 export default HeaderLogPage;

@@ -1,18 +1,18 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 
-
-
 function Header() {
 	
 	return (
 		<View style={styles.Header}>
+
 			<TouchableHighlight style={styles.headerTouchableHighlight}>
 				<View style={styles.HeaderTitle}>
 					<Text style={styles.headerText}>Marvelspace a space</Text>
 					<Text style={styles.headerText}>for super friends</Text>
 				</View>
 			</TouchableHighlight>
+
 			<TouchableHighlight style={styles.headerTouchableHighlight}>
 				<View style={styles.HeaderBar}>  
 					 <Text style={styles.headerText}>Newsfeed</Text>
@@ -30,11 +30,11 @@ function Header() {
 const styles = StyleSheet.create({
 	Header: {
 		flex: 1,
-		Position: "absolute",
+		position: "absolute",
 		flexDirection: "column",
 		top: 0,
 		backgroundColor: "blue",
-		height: "4em",
+		height: 4,
 		width: "100%",
 	},
 	HeaderTitle: {
@@ -42,22 +42,20 @@ const styles = StyleSheet.create({
 		backgroundColor: "blue",
 		width: "100%",
 		justifyContent: "flex-start",
-		alignItems: "start",
+		alignItems: "flex-start",
 		padding: 10,
 		paddingBottom: 15,
 	},
 	HeaderBar: {
 		flexDirection: "row",
 		justifyContent: "flex-end",
-
 		backgroundColor: "skyblue",
 		width: "100%",
 		bottom: 0,
 		padding: 5,
 		justifyContent: "space-around",
-		alignItems: "start",
+		alignItems: "flex-start",
 	},
-
 	headerTouchableHighlight: {
 		alignItems: "center",
 		justifyContent: "center",
@@ -70,4 +68,5 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 	},
 });
+
 export default Header;
