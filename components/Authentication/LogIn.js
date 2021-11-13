@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Layout from "../Layout";
 
-export default function LogInPage() {
+export default function LogIn() {
 	
 	return (
 		<Layout>

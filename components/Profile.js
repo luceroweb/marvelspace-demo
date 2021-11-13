@@ -9,11 +9,11 @@ export default function Profile ({ navigation }) {
   useEffect(() => {
     wpApiFetch({ path: WPAPI_PATHS.posts })
       .then(response => {
-        setProfileInfo(response.at(0).content.rendered)
+        setProfileInfo(response.rendered)
       });
       wpApiFetch({ path: WPAPI_PATHS.members })
         .then(response => {
-          console.log(response)
+          // console.log(response)
         });
   });
 
@@ -24,8 +24,8 @@ export default function Profile ({ navigation }) {
 
         <View style={styles.profileInfoContainer}>
           <Image 
-            source={'https://i.pravatar.cc/300'} 
-            style={{ height: '50%', width: '100%', borderRadius: 10 }}
+            source={{uri: 'https://i.pravatar.cc/300'}} 
+            style={{ height: 150, width: 150, borderRadius: 10 }}
           />
           <Text>MarvelSpace Tom!</Text>
           <Text>Avengers Tower, New York City</Text>

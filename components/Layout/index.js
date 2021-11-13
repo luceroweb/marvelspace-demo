@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { StatusBar } from "expo-status-bar";
 import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
