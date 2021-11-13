@@ -8,11 +8,11 @@ export default function Footer({ navigation }) {
     globalStyles.text,
     globalStyles.menuText,
     globalStyles.bold,
-    styles.footerText,
+    globalStyles.whiteText,
   ]
 
 	return (
-    <View style={styles.footer}>
+    <View style={[globalStyles.darkGreyBG, styles.footer]}>
 
       <View style={globalStyles.menu}>
         <Text style={menuText} onPress={() => navigation.navigate('About')}>About</Text>
@@ -25,7 +25,7 @@ export default function Footer({ navigation }) {
       </View>
 
       <View>
-        <Text style={[globalStyles.bold, globalStyles.menuText, styles.copyright]}>
+        <Text style={[globalStyles.bold, globalStyles.menuText, globalStyles.darkGreyText]}>
           ©2021 MarvelSpace.All Rights Reserved.
         </Text>
       </View>
@@ -41,12 +41,5 @@ const styles = StyleSheet.create({
     flexShrink: 0,
     flexBasis: "auto",
     padding: 10,
-    backgroundColor: "#151515",
 	},
-  footerText: {
-		color: "white",
-  },
-  copyright: {
-		color: "#444",
-  },
 });

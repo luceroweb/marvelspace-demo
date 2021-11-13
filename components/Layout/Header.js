@@ -7,7 +7,7 @@ export default function Header({ navigation }) {
   const menuText = [
     globalStyles.bold,
     globalStyles.menuText,
-    styles.headerText,
+    globalStyles.whiteText,
   ];
 	
 	return (
@@ -44,17 +44,14 @@ const styles = StyleSheet.create({
     flexShrink: 0,
     flexBasis: "auto",
 		flexDirection: "column",
-		backgroundColor: "#0075ff",
 	},
 	headerTitle: {
-		backgroundColor: "#293ef1",
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "row",
 		padding: 10,
 	},
 	mainMenu: {
-		backgroundColor: "skyblue",
 		padding: 10,
-	},
-	headerText: {
-		color: "white",
 	},
 });

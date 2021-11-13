@@ -5,6 +5,12 @@ const styles = StyleSheet.create({
 		marginBottom: 5,
 		fontSize: 14,
 	},
+  darkGreyText: {
+		color: "#444444",
+  },
+  whiteText: {
+		color: "#FFFFFF",
+  },
   bold: {
 		fontWeight: "bold",
   },
@@ -26,6 +32,21 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     padding: 5,
     borderRadius: 2,
+  },
+  marvelRedBG: {
+    backgroundColor: "#EC1D24",
+  },
+  skyBlueBG: {
+    backgroundColor: "skyblue",
+  },
+  disneyBlueBG: {
+    backgroundColor: "#293ef1",
+  },
+  darkGreyBG: {
+    backgroundColor: "#151515",
+  },
+  mediumGreyBG: {
+    backgroundColor: "#393939",
   },
 });
 

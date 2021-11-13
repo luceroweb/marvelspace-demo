@@ -18,7 +18,7 @@ export default function Layout({ children, navigation }) {
 
       <Footer navigation={navigation} style={styles.shrink} />
 
-      <StatusBar backgroundColor="#393939" />
+      <StatusBar backgroundColor="#EC1D24" />
       
     </SafeAreaView>
   )
@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     height: "100%",
-    // primary: "#ec1d24",
   },
   main: {
     flexGrow: 1,
