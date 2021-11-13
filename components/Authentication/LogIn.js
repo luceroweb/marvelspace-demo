@@ -6,7 +6,7 @@ import Layout from "../Layout";
 export default function LogIn({ navigation }) {
 	
 	return (
-		<Layout>
+		<Layout navigation={navigation}>
 
 				<View>
 					<Text style={globalStyles.text}>

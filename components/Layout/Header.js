@@ -13,12 +13,20 @@ export default function Header({ navigation }) {
 	return (
 		<View style={styles.header}>
 
-      <View style={styles.headerTitle}>
-        <Text style={[globalStyles.bold, styles.headerText]} onPress={() => navigation.navigate('Newsfeed')}>MARVELspace</Text>
-        <Text style={styles.headerText} onPress={() => navigation.navigate('Newsfeed')}>a space for super friends</Text>
+      <View style={[globalStyles.marvelRedBG, styles.headerTitle]}>
+        <View>
+          <Text style={[globalStyles.bold, globalStyles.whiteText]} onPress={() => navigation.navigate('Newsfeed')}>MARVELspace</Text>
+          <Text style={globalStyles.whiteText} onPress={() => navigation.navigate('Newsfeed')}>a space for super friends</Text>
+        </View>
+
+        <View style={globalStyles.menu}>
+          <Text style={menuText} onPress={() => navigation.navigate('LogIn')}>Login</Text>
+          <Text style={menuText}>|</Text>
+          <Text style={menuText} onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
+        </View>
       </View>
 
-      <View style={[globalStyles.menu, styles.mainMenu]}>
+      <View style={[globalStyles.menu, globalStyles.darkGreyBG, styles.mainMenu]}>
         <Text style={menuText} onPress={() => navigation.navigate('Friends')}>Friends</Text>
         <Text style={menuText} onPress={() => navigation.navigate('Profile')}>Profile</Text>
         <Text style={menuText} onPress={() => navigation.navigate('Images')}>Images</Text>
