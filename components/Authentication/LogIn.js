@@ -1,26 +1,26 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import globalStyles from "../utils/globalStyles";
 import Layout from "../Layout";
 
-export default function LogIn() {
+export default function LogIn({ navigation }) {
 	
 	return (
 		<Layout>
 
 				<View>
-					<Text name="SignUpPage">Sign Up</Text>
-					<Text style={styles.text}>
+					<Text style={globalStyles.text}>
 						Login
 					</Text>
+
+          <View style={globalStyles.menu}>
+            <Text style={globalStyles.menuText} onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
+            <Text style={globalStyles.menuText}>|</Text>
+            <Text style={globalStyles.menuText} onPress={() => navigation.navigate('ResetPassword')}>Reset Password</Text>
+          </View>
+
 				</View>
         
 		</Layout>
 	);
 }
-
-const styles = StyleSheet.create({
-	text: {
-		margin: 5,
-		fontSize: 14,
-	},
-});
