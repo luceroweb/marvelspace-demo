@@ -16,6 +16,17 @@ const styles = StyleSheet.create({
 		fontSize: 14,
     paddingRight: 10,
 	},
+  narrowForm: {
+    width: "100%",
+    maxWidth: 300,
+  },
+  textInput: {
+    marginBottom: 5,
+    borderWidth: 1,
+    borderStyle: "solid",
+    padding: 5,
+    borderRadius: 2,
+  },
 });
 
 export default styles;
