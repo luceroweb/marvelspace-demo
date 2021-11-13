@@ -16,7 +16,7 @@ export default function LogIn({ navigation }) {
           <View style={globalStyles.menu}>
             <Text style={globalStyles.menuText} onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
             <Text style={globalStyles.menuText}>|</Text>
-            <Text style={globalStyles.menuText} onPress={() => navigation.navigate('ResetPassword')}>Reset Password</Text>
+            <Text style={globalStyles.menuText} onPress={() => navigation.navigate('PasswordReset')}>Reset Password</Text>
           </View>
 
 				</View>

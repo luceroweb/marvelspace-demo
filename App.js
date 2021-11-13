@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import LogIn from "./components/Authentication/LogIn";
 import PasswordReset from "./components/Authentication/PasswordReset";
-import SignUpPage from "./components/Authentication/SignUpPage";
+import SignUp from "./components/Authentication/SignUp";
 import Newsfeed from "./components/Newsfeed";
 import Profile from "./components/Profile";
 import Images from "./components/Images";
@@ -25,10 +25,10 @@ export default function App() {
       <SafeAreaProvider>
 
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Newsfeed" component={Newsfeed} />
           <Stack.Screen name="LogIn" component={LogIn} />
-          <Stack.Screen name="SignUpPage" component={SignUpPage} />
+          <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="PasswordReset" component={PasswordReset} />
+          <Stack.Screen name="Newsfeed" component={Newsfeed} />
           <Stack.Screen name="Friends" component={Friends} />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Images" component={Images} />
