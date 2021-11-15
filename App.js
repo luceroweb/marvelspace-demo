@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -18,6 +18,7 @@ import Terms from "./components/Pages/Terms";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [storedToken, setStoredToken] = useState("token");
   
 	return (
     <NavigationContainer>
@@ -25,10 +26,26 @@ export default function App() {
       <SafeAreaProvider>
 
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="LogIn" component={LogIn} />
+          <Stack.Screen name="LogIn">
+          {props => 
+            <LogIn
+              {...props}
+              component={LogIn}
+              setStoredToken={setStoredToken}
+            />
+          }
+          </Stack.Screen>
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="PasswordReset" component={PasswordReset} />
-          <Stack.Screen name="Newsfeed" component={Newsfeed} />
+          <Stack.Screen name="Newsfeed">
+          {props => 
+            <Newsfeed
+              {...props}
+              component={Newsfeed}
+              storedToken={storedToken}
+            />
+          }
+          </Stack.Screen>
           <Stack.Screen name="Friends" component={Friends} />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Images" component={Images} />

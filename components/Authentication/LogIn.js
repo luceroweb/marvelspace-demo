@@ -3,13 +3,12 @@ import { Text, View, TextInput, Button } from "react-native";
 import globalStyles from "../utils/globalStyles";
 import Layout from "../Layout";
 
-export default function LogIn({ navigation }) {
+export default function LogIn({ navigation, setStoredToken }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedin] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [token, setToken] = useState('');
 
   useEffect(
     () => {
@@ -43,7 +42,7 @@ export default function LogIn({ navigation }) {
 	};
 
   const formSuccess = (data) => {
-    setToken(data.token);
+    setStoredToken(data.token);
     setLoggedin(true);
     setLoading(false);
     setUsername('');
