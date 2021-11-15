@@ -12,9 +12,28 @@ export const WPAPI_PATHS = {
  * @param {Promise} response
  * example use: wpApiFetch({ path: WPAPI_PATHS.posts }) returns Promise for wordpress posts array
  */
-export const wpApiFetch = async ({ path, data, method = 'GET' }) => {
+export const wpApiFetch = async ({ path, data, method = 'GET', token }) => {
+
+  const headers = () => {
+    if( method === 'POST') {
+      return {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+      }
+    }
+    return {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  const options = {
+    method: method,
+    headers: headers(),
+    body: JSON.stringify(data)
+  }
+
   try {
-    const response = await fetch(path, { method, body: JSON.stringify(data) });
+    const response = await fetch(path, options);
     return response.json();
   } catch(error) {
     // any error handling code goes here
