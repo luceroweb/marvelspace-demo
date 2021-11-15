@@ -18,7 +18,7 @@ import Terms from "./components/Pages/Terms";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [storedToken, setStoredToken] = useState("token");
+  const [storedToken, setStoredToken] = useState("");
   
 	return (
     <NavigationContainer>
