@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import { StyleSheet, Text, View, TextInput, Button, Image } from "react-native";
 import Layout from "./Layout";
 import globalStyles from "./utils/globalStyles";
 import { WPAPI_PATHS, wpApiFetch } from "./utils/WPAPI";
@@ -9,6 +9,7 @@ export default function Newsfeed({ navigation, storedToken }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [posts, setPosts] = useState([]);
+  const [members, setMembers] = useState([]);
 
   useEffect(
     () => {
@@ -40,6 +41,14 @@ export default function Newsfeed({ navigation, storedToken }) {
       .then(data => {
         setPosts(data)
       })
+      // List Members
+      wpApiFetch({
+        path: WPAPI_PATHS.members
+      })
+      .then(data => {
+        setMembers(data);
+        console.log('Members',data);
+      })
     },
     [loading]
   );
@@ -60,38 +69,51 @@ export default function Newsfeed({ navigation, storedToken }) {
     console.log(data);
   }
 
+  const memberById = (id) => {
+    return members.find(member => member.id === id)
+  }
+
   console.log("list posts",posts);
   const regex = /<[^>]*>/g;
   const newestPosts = posts.map((post, index) => (
     <View key={index} style={ {marginTop: 15}}>
-      <Text styles={globalStyles.text}>Author ID: {post.author}</Text>
+      <Image
+        style={{width: 90, height: 90}}
+        source={{uri: memberById(post.author)?.avatar_urls.full}} 
+      />
+      <Text styles={globalStyles.text}>{memberById(post.author)?.name}</Text>
       <Text styles={globalStyles.text}>{post.date}</Text>
-      <Text styles={globalStyles.text}>{post.excerpt.rendered.replaceAll(regex, "")}</Text>
+      <Text styles={globalStyles.text}>{post.excerpt.rendered?.replace(regex, "")}</Text>
     </View>
   ));
 
 	return (
 		<Layout navigation={navigation}>
 
-      <View style={globalStyles.narrowForm}>
+      <View>
         <Text style={[globalStyles.text, globalStyles.bold]}>News Feed</Text>
-
-        <Text style={globalStyles.text}>Add a Post:</Text>
-        <TextInput
-          style={globalStyles.textInput}
-          multiline={true}
-          numberOfLines={4}
-          value={newPostText}
-          onChangeText={setNewPostText}
-          onSubmitEditing={onSubmit}
-        />
-        <Button
-          onPress={onSubmit}
-          title="Add Post"
-        />
-        <Text>{loading && 'Loading'}</Text>
-        <Text>{error}</Text>
       </View>
+
+      {storedToken ?
+        <View style={globalStyles.narrowForm}>
+          <Text style={globalStyles.text}>Add a Post:</Text>
+          <TextInput
+            style={globalStyles.textInput}
+            multiline={true}
+            numberOfLines={4}
+            value={newPostText}
+            onChangeText={setNewPostText}
+            onSubmitEditing={onSubmit}
+          />
+          <Button
+            onPress={onSubmit}
+            title="Add Post"
+          />
+          <Text>{loading && 'Loading'}</Text>
+          <Text>{error}</Text>
+        </View>
+        : null
+      }
 
       <View>
         <Text style={[globalStyles.text, globalStyles.bold, {marginTop: 15}]}>Newest Posts</Text>

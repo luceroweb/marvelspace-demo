@@ -57,7 +57,7 @@ export default function LogIn({ navigation, setStoredToken }) {
     data?.message 
       ? setError(
         data.message
-          .replaceAll(regex, "")
+          .replace(regex, "")
       )
       :'';
     console.log(data);
