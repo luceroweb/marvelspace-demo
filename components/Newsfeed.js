@@ -8,11 +8,12 @@ export default function Newsfeed({ navigation, storedToken }) {
   const [newPostText, setNewPostText] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [posts, setPosts] = useState([]);
 
   useEffect(
     () => {
+      // Create New Post
       if(loading) {
-        
         wpApiFetch({
           path: WPAPI_PATHS.posts, 
           data: {
@@ -32,6 +33,13 @@ export default function Newsfeed({ navigation, storedToken }) {
           setLoading(false);
         })
       }
+      // List Posts
+      wpApiFetch({
+        path: WPAPI_PATHS.posts
+      })
+      .then(data => {
+        setPosts(data)
+      })
     },
     [loading]
   );
@@ -51,6 +59,16 @@ export default function Newsfeed({ navigation, storedToken }) {
       :'';
     console.log(data);
   }
+
+  console.log("list posts",posts);
+  const regex = /<[^>]*>/g;
+  const newestPosts = posts.map((post, index) => (
+    <View key={index} style={ {marginTop: 15}}>
+      <Text styles={globalStyles.text}>Author ID: {post.author}</Text>
+      <Text styles={globalStyles.text}>{post.date}</Text>
+      <Text styles={globalStyles.text}>{post.excerpt.rendered.replaceAll(regex, "")}</Text>
+    </View>
+  ));
 
 	return (
 		<Layout navigation={navigation}>
@@ -73,6 +91,11 @@ export default function Newsfeed({ navigation, storedToken }) {
         />
         <Text>{loading && 'Loading'}</Text>
         <Text>{error}</Text>
+      </View>
+
+      <View>
+        <Text style={[globalStyles.text, globalStyles.bold, {marginTop: 15}]}>Newest Posts</Text>
+        {newestPosts}
       </View>
 
 		</Layout>
