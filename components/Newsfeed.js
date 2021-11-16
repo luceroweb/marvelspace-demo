@@ -27,7 +27,6 @@ export default function Newsfeed({ navigation, storedToken }) {
           token: `${storedToken}`
         })
         .then(data => {
-          console.log('data from api:',data);
           data.data?.status !== 400 
             ? formError(data) 
             : console.log('New Post Response', data);
@@ -46,8 +45,7 @@ export default function Newsfeed({ navigation, storedToken }) {
         path: WPAPI_PATHS.members
       })
       .then(data => {
-        setMembers(data);
-        console.log('Members',data);
+        setMembers(data)
       })
     },
     [loading]
@@ -55,7 +53,6 @@ export default function Newsfeed({ navigation, storedToken }) {
 
   const onSubmit = () => {
     setLoading(true);
-    console.log('add a post submit', newPostText);
   }
 
   const formError = (data) => {
@@ -66,14 +63,12 @@ export default function Newsfeed({ navigation, storedToken }) {
           .replaceAll(regex, "")
       )
       :'';
-    console.log(data);
   }
 
   const memberById = (id) => {
     return members.find(member => member.id === id)
   }
 
-  console.log("list posts",posts);
   const regex = /<[^>]*>/g;
   const newestPosts = posts.map((post, index) => (
     <View key={index} style={ {marginTop: 15}}>

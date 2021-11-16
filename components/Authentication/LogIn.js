@@ -60,7 +60,6 @@ export default function LogIn({ navigation, setStoredToken }) {
           .replace(regex, "")
       )
       :'';
-    console.log(data);
   }
 	
 	return (
