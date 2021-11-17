@@ -58,26 +58,36 @@ export default function Newsfeed({ navigation, storedToken }) {
   const formError = (data) => {
     const regex = /<[^>]*>/g;
     data?.message 
-      ? setError(
-        data.message
-          .replaceAll(regex, "")
-      )
+      ? setError(data.message.replaceAll(regex, ""))
       :'';
   }
 
   const memberById = (id) => {
-    return members.find(member => member.id === id)
+    const member = members.find(member => member.id === id);
+    return member;
   }
 
   const regex = /<[^>]*>/g;
   const newestPosts = posts.map((post, index) => (
-    <View key={index} style={ {marginTop: 15}}>
-      <Image
-        style={{width: 90, height: 90}}
-        source={{uri: memberById(post.author)?.avatar_urls.full}} 
-      />
-      <Text styles={globalStyles.text}>{memberById(post.author)?.name}</Text>
-      <Text styles={globalStyles.text}>{post.date}</Text>
+    <View key={index} style={{marginTop: 15}}>
+      <View style={[globalStyles.menu, {marginBottom: 5}]}>
+        <View>
+          <Image
+            style={{width: 30, height: 30, marginRight: 5}}
+            source={{
+              uri: memberById(post.author)?.avatar_urls.full.startsWith('https:') 
+                ? memberById(post.author).avatar_urls?.full 
+                : 'https://www.gravatar.com/avatar/?d=identicon'
+            }}
+          />
+        </View>
+        <View>
+          <Text styles={globalStyles.text}>
+            {memberById(post.author)?.name}
+          </Text>
+        <Text styles={globalStyles.text}>{post.date}</Text>
+        </View>
+      </View>
       <Text styles={globalStyles.text}>{post.excerpt.rendered?.replace(regex, "")}</Text>
     </View>
   ));
@@ -112,7 +122,10 @@ export default function Newsfeed({ navigation, storedToken }) {
 
       <View>
         <Text style={[globalStyles.text, globalStyles.bold, {marginTop: 15}]}>Newest Posts</Text>
-        {newestPosts}
+        {posts
+          ? newestPosts
+          : null
+        }
       </View>
 
 		</Layout>
