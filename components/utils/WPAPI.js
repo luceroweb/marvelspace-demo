@@ -7,48 +7,32 @@ export const WPAPI_PATHS = {
   members: `${BASE_URL}/buddypress/v1/members`,
 }
 
-/**
- * wordpress API fetch function
- * @param {Promise} response
- * example use: wpApiFetch({ path: WPAPI_PATHS.posts }) returns Promise for wordpress posts array
- */
-export const wpApiFetch = async ({ path, data, method = 'GET', token }) => {
+const options = (method, data, token) => {
 
-  const headers = () => {
-    if( method === 'POST') {
-      return {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-      }
-    }
-    return {
-      'Content-Type': 'application/json'
-    }
-  }
+  const bearer = {'Authorization': `Bearer ${token}`};
 
-  const options = {
+  const optionsOutput = {
     method: method,
-    headers: headers(),
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(data)
   }
 
+  options.headers = token 
+    ? { ...bearer, ...options.headers } 
+    : options.headers;
+
+  return optionsOutput;
+}
+
+export const wpApiFetch = async ({ path, data, method = 'GET', token }) => {
+
   try {
-    const response = await fetch(path, options);
+    const response = await fetch(path, options(method, data, token));
     return response.json();
   } catch(error) {
     // any error handling code goes here
     console.error('wpApiFetch() error\n', error);
   }
-}
-
-export const posts = () => {
-  return fetch(`${BASE_URL}/wp/v2/posts`).then(response => response.json());
-}
-
-export const users = () => {
-  return fetch(`${BASE_URL}/wp/v2/users`).then(response => response.json());
-}
-
-export const media = () => {
-  return fetch(`${BASE_URL}/wp/v2/users`).then(response => response.json());
 }
